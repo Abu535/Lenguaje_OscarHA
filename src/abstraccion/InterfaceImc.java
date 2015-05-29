@@ -11,7 +11,16 @@ package abstraccion;
  */
 public class InterfaceImc {
     public static void main(String[]oso){
-       Imc imc=new Imc(80,1.67f);
-        System.out.println(imc.calcular()); 
+       //Imc imc=new Imc(80,1.67f);
+       Imc imc1=new Imc();
+       imc1.setPso(10f);
+       imc1.setAlt(5f);
+        System.out.println(imc1.calcular()); 
     }
+    //primitivos integrales
+    byte b;
+    short s;
+    int i;
+    long l; 
+
 }
