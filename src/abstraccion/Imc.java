@@ -25,10 +25,10 @@ public class Imc {
     public float getAlt(){
         return alt;
     }
-    /*public Imc(float p , float a){
+    public Imc(float p , float a){
       pso=p;
       alt=a;
-    }*/
+    }
     public String calcular(){
         float imc=pso/(alt*alt);
         return "Tu imc es : "+imc;
