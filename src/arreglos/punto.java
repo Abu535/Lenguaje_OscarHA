@@ -32,7 +32,7 @@ public class punto extends javax.swing.JFrame {
         texto_valor = new javax.swing.JTextField();
         transformar = new javax.swing.JButton();
         etiqueta_transformacion = new javax.swing.JLabel();
-        texto_resultado = new javax.swing.JLabel();
+        etiqueta_retransformacion = new javax.swing.JLabel();
         retransformar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,7 +56,7 @@ public class punto extends javax.swing.JFrame {
 
         etiqueta_transformacion.setText("Resultado");
 
-        texto_resultado.setText("Retransformacion");
+        etiqueta_retransformacion.setText("Retransformacion");
 
         retransformar.setText("Retransformar");
         retransformar.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +87,7 @@ public class punto extends javax.swing.JFrame {
                         .addComponent(retransformar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(texto_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(etiqueta_retransformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(120, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -102,7 +102,7 @@ public class punto extends javax.swing.JFrame {
                     .addComponent(transformar)
                     .addComponent(etiqueta_transformacion))
                 .addGap(60, 60, 60)
-                .addComponent(texto_resultado)
+                .addComponent(etiqueta_retransformacion)
                 .addGap(18, 18, 18)
                 .addComponent(retransformar)
                 .addContainerGap(82, Short.MAX_VALUE))
@@ -124,12 +124,17 @@ public class punto extends javax.swing.JFrame {
 
     private void retransformarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retransformarActionPerformed
         // TODO add your handling code here:
+        String s=new String(texto_valor.getText());
+      transform t=new transform(s);
+      
+      etiqueta_retransformacion.setText(t.retansformar());
     }//GEN-LAST:event_retransformarActionPerformed
 
     private void transformarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transformarActionPerformed
       String s=new String(texto_valor.getText());
       transform t=new transform(s);
-      etiqueta_transformacion.setText(texto_valor.getText());
+      
+      etiqueta_transformacion.setText(t.transformar1());
     }//GEN-LAST:event_transformarActionPerformed
 
     private void texto_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_texto_valorActionPerformed
@@ -172,11 +177,11 @@ public class punto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel etiqueta_retransformacion;
     private javax.swing.JLabel etiqueta_transformacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton retransformar;
-    private javax.swing.JLabel texto_resultado;
     private javax.swing.JTextField texto_valor;
     private javax.swing.JButton transformar;
     // End of variables declaration//GEN-END:variables

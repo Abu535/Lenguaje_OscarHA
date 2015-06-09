@@ -10,10 +10,29 @@ package arreglos;
  * @author T-107
  */
 public class transform {
+    byte[]al;
     public transform(String a){
-        byte[]al=a.getBytes();
+      al=a.getBytes();
+        
     }
+     public String transformar1(){
+StringBuilder builder=new StringBuilder();
+for (byte c:al){
+     builder.append(c);
+     builder.append(" ");
+}
+return builder.toString();
+
+        }
+     public String retansformar(){
+         StringBuilder builder=new StringBuilder();
+for (byte c:al){
+     builder.append((char)(c));
+}
+         return builder.toString();
     
 }
-    
+     
+     }
+   
 

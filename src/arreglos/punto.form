@@ -65,7 +65,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="texto_resultado" min="-2" pref="138" max="-2" attributes="0"/>
+                          <Component id="etiqueta_retransformacion" min="-2" pref="138" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="120" max="32767" attributes="0"/>
@@ -85,7 +85,7 @@
                       <Component id="etiqueta_transformacion" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="texto_resultado" min="-2" max="-2" attributes="0"/>
+                  <Component id="etiqueta_retransformacion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="retransformar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="82" max="32767" attributes="0"/>
@@ -117,7 +117,7 @@
             <Property name="text" type="java.lang.String" value="Resultado"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="texto_resultado">
+        <Component class="javax.swing.JLabel" name="etiqueta_retransformacion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Retransformacion"/>
           </Properties>
