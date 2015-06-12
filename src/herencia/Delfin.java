@@ -9,6 +9,11 @@ package herencia;
  *
  * @author T-107
  */
-public interface Ruido {
-    public String hacer_ruido();
+public class Delfin extends Animal implements Ruido {
+
+    @Override
+    public String hacer_ruido() {
+   return "briiiii";
+    }
+    
 }
