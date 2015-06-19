@@ -24,8 +24,7 @@ public class Chapultepec {
         Leon  l2=new Leon();
                l2.setNombre("Mufasa");
                 
-        Delfin d1=new Delfin();        
-               d1.setNombre("Flipper");
+     
        //para hacer el ciclo for se crea un arreglo
        
                Ruido animales[]=new Ruido[4];
@@ -33,7 +32,7 @@ public class Chapultepec {
        animales[0]=p1;
        animales[1]=l1;
        animales[2]=l2;
-       animales[3]=d1;
+  
        // interface se invocara el metodo hacer ruido
        for(Ruido algo:animales){
            //se invoca al subtipo animales 
