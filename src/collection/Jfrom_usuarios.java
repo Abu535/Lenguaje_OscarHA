@@ -5,6 +5,10 @@
  */
 package collection;
 
+import java.util.Collections;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author T-107
@@ -38,6 +42,9 @@ public class Jfrom_usuarios extends javax.swing.JFrame {
         jText_email = new javax.swing.JTextField();
         agregar_usuario = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable_usuario = new javax.swing.JTable();
+        jChecar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,15 +113,44 @@ public class Jfrom_usuarios extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Agregar usuario", jPanel2);
 
+        jTable_usuario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null}
+            },
+            new String [] {
+                "Nombre", "Edad", "Correo"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable_usuario);
+
+        jChecar.setText("Checar");
+        jChecar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jChecarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jChecar)
+                .addGap(212, 212, 212))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 272, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(jChecar)
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Visualizar usuarios", jPanel3);
@@ -151,6 +187,21 @@ public class Jfrom_usuarios extends javax.swing.JFrame {
     private void agregar_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_usuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_agregar_usuarioActionPerformed
+
+    private void jChecarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jChecarActionPerformed
+Generador_usuario gen=new Generador_usuario();
+       List<Usuario>usuario=gen.getUsuario();
+       Collections.sort(usuario,new Usuario_pornombre());
+        jTable_usuario.setModel(new DefaultTableModel(new String[]{"nombre","Edad","email"},gen.getUsuario().size()));   
+        int fila=0;
+for (Usuario u:usuario){
+jTable_usuario.setValueAt(u.getNombre(), fila,0);
+jTable_usuario.setValueAt(u.getEdad(), fila,1);
+jTable_usuario.setValueAt(u.getEmail(), fila,2);
+fila ++;
+}
+// TODO add your handling code here:
+    }//GEN-LAST:event_jChecarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,13 +240,16 @@ public class Jfrom_usuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregar_usuario;
+    private javax.swing.JButton jChecar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable_usuario;
     private javax.swing.JTextField jText_Nombre;
     private javax.swing.JTextField jText_edad;
     private javax.swing.JTextField jText_email;
