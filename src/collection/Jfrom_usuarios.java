@@ -202,7 +202,8 @@ public class Jfrom_usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_agregar_usuarioActionPerformed
 
     private void jChecarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jChecarActionPerformed
-Generador_usuario gen=new Generador_usuario();
+if (combo_selct.getSelectedIndex()==0){
+        Generador_usuario gen=new Generador_usuario();
        List<Usuario>usuario=gen.getUsuario();
        Collections.sort(usuario,new Usuario_pornombre());
         jTable_usuario.setModel(new DefaultTableModel(new String[]{"nombre","Edad","email"},gen.getUsuario().size()));   
@@ -212,6 +213,21 @@ jTable_usuario.setValueAt(u.getNombre(), fila,0);
 jTable_usuario.setValueAt(u.getEdad(), fila,1);
 jTable_usuario.setValueAt(u.getEmail(), fila,2);
 fila ++;
+}
+    }
+else{
+    Generador_usuario gen=new Generador_usuario();
+       List<Usuario>usuario=gen.getUsuario();
+       Collections.sort(usuario,new Usuariopor_edad());
+        jTable_usuario.setModel(new DefaultTableModel(new String[]{"nombre","Edad","email"},gen.getUsuario().size()));   
+        int fila=0;
+for (Usuario u:usuario){
+jTable_usuario.setValueAt(u.getNombre(), fila,0);
+jTable_usuario.setValueAt(u.getEdad(), fila,1);
+jTable_usuario.setValueAt(u.getEmail(), fila,2);
+fila ++;
+}
+
 }
 // TODO add your handling code here:
     }//GEN-LAST:event_jChecarActionPerformed
