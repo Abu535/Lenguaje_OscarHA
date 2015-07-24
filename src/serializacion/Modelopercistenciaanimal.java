@@ -11,15 +11,33 @@ package serializacion;
  */
 import com.sun.corba.se.impl.io.IIOPOutputStream;
 import java.io.*;
+import java.util.ArrayList;
 public class Modelopercistenciaanimal {
+    String ruta="D:\\Nueva carpeta\\animales.xxx";
+    ArrayList<Animal> animales;
+
+    public Modelopercistenciaanimal() {
+        this.animales =new ArrayList<Animal>();
+    }
     public void guardar(Animal animal) throws Exception{
         //paso 1 crear el archivo dodne se guardara el animal
-        File file=new File("D:\\Nueva carpeta/animales.xxx");
+        File file=new File(ruta);
         FileOutputStream fos=new FileOutputStream(file);
+        if (file.exists()){
+          animales=buscarTodos();
+        }
         ObjectOutputStream oos=new ObjectOutputStream(fos);
-        oos.writeObject(animal);
+        animales.add(animal);
+        oos.writeObject(animales);
         System.out.println("Animal comprimido con exito");
         
     }
-    
+    public ArrayList<Animal> buscarTodos()throws Exception{
+
+        File f=new File(ruta);
+        FileInputStream fis=new FileInputStream(f);
+        ObjectInputStream ois=new ObjectInputStream(fis);
+        animales=(ArrayList<Animal>)ois.readObject();
+        return animales;
+    }
 }
